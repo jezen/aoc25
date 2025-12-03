@@ -1,0 +1,47 @@
+cabal-version: 3.0
+name:          aoc
+version:       0.1.0.0
+license:       BSD-3-Clause
+author:        Jezen Thomas
+maintainer:    jezen@jezenthomas.com
+category:      Data
+build-type:    Simple
+
+common common
+  default-extensions:
+    ImportQualifiedPost
+    LambdaCase
+    NumericUnderscores
+    OverloadedStrings
+    RecordWildCards
+
+  ghc-options:
+    -Wall -Werror -Wincomplete-uni-patterns -Wincomplete-record-updates
+    -Widentities -Wredundant-constraints -Wcpp-undef -Wpartial-fields
+    -Wunused-packages -O2
+
+  default-language:   Haskell2010
+
+library
+  import:          common
+  exposed-modules: AOC
+  build-depends:   base ^>=4.20.2.0
+  hs-source-dirs:  src
+
+executable aoc
+  import:         common
+  main-is:        Main.hs
+  hs-source-dirs: app
+  build-depends:
+    , aoc
+    , base     ^>=4.20.2.0
+
+test-suite aoc-test
+  import:         common
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  build-depends:
+    , aoc
+    , base     ^>=4.20.2.0
+    , hspec
