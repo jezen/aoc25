@@ -22,14 +22,15 @@
 
         aoc2501 = haskellPackages.callCabal2nix "aoc" ./01 {};
         aoc2502 = haskellPackages.callCabal2nix "aoc" ./02 {};
+        aoc2503 = haskellPackages.callCabal2nix "aoc" ./03 {};
       in
       {
         packages = {
-          inherit aoc2501 aoc2502;
+          inherit aoc2501 aoc2502 aoc2503;
         };
 
         devShells.default = haskellPackages.shellFor {
-          packages = _p: [ aoc2501 aoc2502 ];
+          packages = _p: [ aoc2501 aoc2502 aoc2503 ];
 
           buildInputs = [
             pkgs.haskellPackages.cabal-install
