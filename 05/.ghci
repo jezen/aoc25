@@ -1,0 +1,25 @@
+:set -isrc
+:set -itest
+:set -j4
+:set -Wall
+:set -Wcpp-undef
+:set -Werror=incomplete-patterns
+:set -Widentities
+:set -Wincomplete-record-updates
+:set -Wincomplete-uni-patterns
+:set -Wpartial-fields
+:set -Wredundant-constraints
+
+:set -XImportQualifiedPost
+:set -XLambdaCase
+:set -XNumericUnderscores
+:set -XOverloadedStrings
+:set -XRecordWildCards
+
+:{
+:def! test \expr -> pure . unlines $
+  [ ":!clear"
+  , ":l test/Main.hs"
+  , ":main " ++ expr
+  ]
+:}
