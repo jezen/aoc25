@@ -25,10 +25,17 @@
         aoc2503 = haskellPackages.callCabal2nix "aoc" ./03 {};
         aoc2504 = haskellPackages.callCabal2nix "aoc" ./04 {};
         aoc2505 = haskellPackages.callCabal2nix "aoc" ./05 {};
+        aoc2506 = haskellPackages.callCabal2nix "aoc" ./06 {};
       in
       {
         packages = {
-          inherit aoc2501 aoc2502 aoc2503 aoc2504 aoc2505;
+          inherit
+            aoc2501
+            aoc2502
+            aoc2503
+            aoc2504
+            aoc2505
+            aoc2506;
         };
 
         devShells.default = haskellPackages.shellFor {
@@ -38,6 +45,7 @@
             aoc2503
             aoc2504
             aoc2505
+            aoc2506
           ];
 
           buildInputs = [
